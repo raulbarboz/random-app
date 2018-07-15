@@ -1,15 +1,14 @@
-console.log('app is running');
-
-var template = <p>This is JSX, da hora</p>;
-
-var template2 = (
+var template = (
   <div>
-  <h1>Raul Barboza</h1>
-  <p>Age: 31</p>
-  <p>Location: Bixiga</p>
+  <h1>Indecision App</h1>
+  <p>This is some info</p>
+  <ol>
+    <li>Item One</li>
+    <li>Item two</li>
+  </ol>
   </div>
 );
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template2, appRoot);
+ReactDOM.render(template, appRoot);

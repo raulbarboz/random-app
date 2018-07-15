@@ -1,33 +1,34 @@
 'use strict';
 
-console.log('app is running');
-
 var template = React.createElement(
-  'p',
-  null,
-  'This is JSX, da hora'
-);
-
-var template2 = React.createElement(
   'div',
   null,
   React.createElement(
     'h1',
     null,
-    'Raul Barboza'
+    'Indecision App'
   ),
   React.createElement(
     'p',
     null,
-    'Age: 31'
+    'This is some info'
   ),
   React.createElement(
-    'p',
+    'ol',
     null,
-    'Location: Bixiga'
+    React.createElement(
+      'li',
+      null,
+      'Item One'
+    ),
+    React.createElement(
+      'li',
+      null,
+      'Item two'
+    )
   )
 );
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template2, appRoot);
+ReactDOM.render(template, appRoot);
