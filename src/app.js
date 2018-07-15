@@ -1,64 +1,51 @@
 //if statements
 //ternary operators
 //logical and operator
-
+var divOption;
 const app ={
   title: 'Some title',
   subtitle: 'This is my subtitle',
-  options: ['One','Two']
+  options: []
 }
 
-const user = {
-  location: 'teste',
-  age: 31
-}
+const onFormSubmit = (e) => {
+  e.preventDefault();
 
-function getLocation(location) {
-  if(location){
-  return <li>Item two: {location}</li>;
+  const option = e.target.elements.option.value;
+  e.target.elements.option.value = '';
+
+  if(option){
+    app.options.push(option)
   }
-}
-
-const template = (
-  <div>
-  <h1>{app.title ? app.title : 'anonymous'}</h1>
-  {app.subtitle && <p>app.subtitle</p>}
-  <ol>
-    <li>Item One</li>
-    <li>Item two</li>
-    {user.age && <li>Item three: {user.age}</li>}
-    {getLocation(user.location)}
-  </ol>
-  </div>
-);
-
-let count = 0;
-
-const addOne = () => {
-  count++
   render();
 }
-const minusOne = () => {
-  count--;
+
+const removeAll = () => {
+  app.options = [];
   render();
 }
-const reset = () => {
-  count = 0
-  render();
-}
+
 
 const appRoot = document.getElementById('app');
 
-const render = () => {
-  const templateTwo = (
+function render() {
+  const template = (
     <div>
-      <h1>Contador: {count}</h1>
-      <button onClick={addOne}>+1</button>
-      <button onClick={minusOne}>-1</button>
-      <button onClick={reset}>reset</button>
+      <h1>{app.title}</h1>
+      <p>{app.subtitle}</p>
+      <button onClick={removeAll}>Remove All</button>
+      <ol>
+      {
+        app.options.map((option) => <li key={option}>{option}</li>)
+      }
+      </ol>
+      <form onSubmit={onFormSubmit}>
+        <input typr="text" name="option"/>
+        <button>Add Option</button>
+      </form>
     </div>
-  )
-  ReactDOM.render(templateTwo, appRoot);
+  );
+  ReactDOM.render(template, appRoot);
 }
 
-render()
+render();
