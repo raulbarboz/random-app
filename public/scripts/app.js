@@ -62,6 +62,50 @@ var template = React.createElement(
   )
 );
 
+var count = 0;
+
+var addOne = function addOne() {
+  count++;
+  render();
+};
+var minusOne = function minusOne() {
+  count--;
+  render();
+};
+var reset = function reset() {
+  count = 0;
+  render();
+};
+
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+var render = function render() {
+  var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+      'h1',
+      null,
+      'Contador: ',
+      count
+    ),
+    React.createElement(
+      'button',
+      { onClick: addOne },
+      '+1'
+    ),
+    React.createElement(
+      'button',
+      { onClick: minusOne },
+      '-1'
+    ),
+    React.createElement(
+      'button',
+      { onClick: reset },
+      'reset'
+    )
+  );
+  ReactDOM.render(templateTwo, appRoot);
+};
+
+render();

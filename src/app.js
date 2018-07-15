@@ -2,13 +2,13 @@
 //ternary operators
 //logical and operator
 
-var app ={
+const app ={
   title: 'Some title',
   subtitle: 'This is my subtitle',
   options: ['One','Two']
 }
 
-var user = {
+const user = {
   location: 'teste',
   age: 31
 }
@@ -19,7 +19,7 @@ function getLocation(location) {
   }
 }
 
-var template = (
+const template = (
   <div>
   <h1>{app.title ? app.title : 'anonymous'}</h1>
   {app.subtitle && <p>app.subtitle</p>}
@@ -32,6 +32,33 @@ var template = (
   </div>
 );
 
-var appRoot = document.getElementById('app');
+let count = 0;
 
-ReactDOM.render(template, appRoot);
+const addOne = () => {
+  count++
+  render();
+}
+const minusOne = () => {
+  count--;
+  render();
+}
+const reset = () => {
+  count = 0
+  render();
+}
+
+const appRoot = document.getElementById('app');
+
+const render = () => {
+  const templateTwo = (
+    <div>
+      <h1>Contador: {count}</h1>
+      <button onClick={addOne}>+1</button>
+      <button onClick={minusOne}>-1</button>
+      <button onClick={reset}>reset</button>
+    </div>
+  )
+  ReactDOM.render(templateTwo, appRoot);
+}
+
+render()
