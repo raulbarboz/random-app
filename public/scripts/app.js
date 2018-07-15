@@ -1,17 +1,43 @@
 'use strict';
 
+//if statements
+//ternary operators
+//logical and operator
+
+var app = {
+  title: 'Some title',
+  subtitle: 'This is my subtitle',
+  options: ['One', 'Two']
+};
+
+var user = {
+  location: 'teste',
+  age: 31
+};
+
+function getLocation(location) {
+  if (location) {
+    return React.createElement(
+      'li',
+      null,
+      'Item two: ',
+      location
+    );
+  }
+}
+
 var template = React.createElement(
   'div',
   null,
   React.createElement(
     'h1',
     null,
-    'Indecision App'
+    app.title ? app.title : 'anonymous'
   ),
-  React.createElement(
+  app.subtitle && React.createElement(
     'p',
     null,
-    'This is some info'
+    'app.subtitle'
   ),
   React.createElement(
     'ol',
@@ -25,7 +51,14 @@ var template = React.createElement(
       'li',
       null,
       'Item two'
-    )
+    ),
+    user.age && React.createElement(
+      'li',
+      null,
+      'Item three: ',
+      user.age
+    ),
+    getLocation(user.location)
   )
 );
 
