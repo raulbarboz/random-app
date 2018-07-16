@@ -1,55 +1,71 @@
-
-var divOption;
-const app ={
-  title: 'Some title',
-  subtitle: 'This is my subtitle',
-  options: []
-}
-
-const onFormSubmit = (e) => {
-  e.preventDefault();
-
-  const option = e.target.elements.option.value;
-  e.target.elements.option.value = '';
-
-  if(option){
-    app.options.push(option)
+class RandomApp extends React.Component {
+  render(){
+    const title = "Random App";
+    const subtitle = "Sort some things";
+    const options = ['Roleta', 'Veganos', 'Sabores da terra']
+    return(
+      <div>
+        <Header title={title} subtitle={subtitle} />
+        <Action />
+        <Options options={options}/>
+        <AddOption />
+      </div>
+    )
   }
-  render();
+}
+class Header extends React.Component {
+  render() {
+      return (
+        <div>
+          <h1>{this.props.title}</h1>
+          <h2>{this.props.subtitle}</h2>
+        </div>
+      )
+  }
 }
 
-const removeAll = () => {
-  app.options = [];
-  render();
+class Action extends React.Component {
+  render(){
+    return (
+      <div>
+        <button>what should i do?</button>
+      </div>
+    )
+  }
 }
 
-const onMakeDecision = () => {
-  const randomNum = Math.floor(Math.random() * app.options.length);
-  const option = app.options[randomNum];
-  alert(option);
-}
-
-const appRoot = document.getElementById('app');
-
-function render() {
-  const template = (
-    <div>
-      <h1>{app.title}</h1>
-      <p>{app.subtitle}</p>
-      <button disabled={app.options.length === 0} onClick={onMakeDecision}>Sort</button>
-      <button onClick={removeAll}>Remove All</button>
-      <ol>
+class Options extends React.Component {
+  render(){
+    return(
+      <div>
       {
-        app.options.map((option) => <li key={option}>{option}</li>)
+          this.props.options.map((option)=> <Option key={option} optionText={option}/>)
       }
-      </ol>
-      <form onSubmit={onFormSubmit}>
-        <input typr="text" name="option"/>
-        <button>Add Option</button>
-      </form>
-    </div>
-  );
-  ReactDOM.render(template, appRoot);
+      <Option />
+      </div>
+    )
+  }
 }
 
-render();
+class Option extends React.Component {
+  render(){
+    return(
+      <div>
+      {this.props.optionText}
+      </div>
+    )
+  }
+}
+
+class AddOption extends React.Component {
+  render(){
+    return (
+      <div>
+        <button>submit</button>
+      </div>
+    )
+  }
+}
+
+
+ReactDOM.render(<RandomApp />, document.getElementById('app'));
