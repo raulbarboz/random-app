@@ -1,6 +1,4 @@
-//if statements
-//ternary operators
-//logical and operator
+
 var divOption;
 const app ={
   title: 'Some title',
@@ -38,7 +36,7 @@ function render() {
     <div>
       <h1>{app.title}</h1>
       <p>{app.subtitle}</p>
-      <button onClick={onMakeDecision}>Sort</button>
+      <button disabled={app.options.length === 0} onClick={onMakeDecision}>Sort</button>
       <button onClick={removeAll}>Remove All</button>
       <ol>
       {
