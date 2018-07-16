@@ -10,6 +10,9 @@ sudo npm i yarn -g
 ```
 npm instal live-server -g
 ```
+```
+npm instal babel-cli -g
+```
 
 ## running
 
