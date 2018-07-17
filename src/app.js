@@ -9,6 +9,24 @@ class RandomApp extends React.Component {
       options: ['Roleta', 'Veganos', 'Sabores da terra', 'Shopping', 'Maiô']
     }
   }
+  componentDidMount(){
+    const options = JSON.parse(localStorage.getItem('options'));
+
+    if(options){
+      this.setState(() => {
+        return{
+          options
+        }
+      })
+    }
+  }
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.options.length !== this.state.options.length){
+      const json = JSON.stringify(this.state.options)
+      localStorage.setItem('options', json)
+    }
+
+  }
   handleDeleteOptions() {
     this.setState(() => ({options: []}))
   }

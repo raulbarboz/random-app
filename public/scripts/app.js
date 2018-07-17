@@ -27,6 +27,27 @@ var RandomApp = function (_React$Component) {
   }
 
   _createClass(RandomApp, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var options = JSON.parse(localStorage.getItem('options'));
+
+      if (options) {
+        this.setState(function () {
+          return {
+            options: options
+          };
+        });
+      }
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (prevState.options.length !== this.state.options.length) {
+        var json = JSON.stringify(this.state.options);
+        localStorage.setItem('options', json);
+      }
+    }
+  }, {
     key: 'handleDeleteOptions',
     value: function handleDeleteOptions() {
       this.setState(function () {
