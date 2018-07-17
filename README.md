@@ -15,8 +15,6 @@ sudo npm i yarn -g
 ```
 yarn install
 ```
-
-* open new table from terminal and type:
 ```
 yarn run dev-server
 ```
