@@ -1,19 +1,22 @@
-var nameVar = 'Raul';
-var nameVar = 'Raul Barboz';
-console.log('name var:', nameVar);
+var nameVar = 'Andrew';
+var nameVar = 'Mike';
+console.log('nameVar', nameVar);
 
-let nameLet = 'Raul';
-nameLet = 'Raul Barboz';
-console.log('name let:', nameLet);
+let nameLet = 'Jen';
+nameLet = 'Julie';
+console.log('nameLet', nameLet);
 
-const nameConst = 'Raul';
-console.log('name const:', nameConst);
+const nameConst = 'Frank';
+console.log('nameConst', nameConst);
 
-// not outside scope
-function getPetName(){
-  var petName = 'hal';
-  return petName;
+// Block scoping
+
+const fullName = 'Jen Mead';
+let firstName;
+
+if (fullName) {
+  firstName = fullName.split(' ')[0];
+  console.log(firstName);
 }
 
-getPetName();
-console.log(petName);
+console.log(firstName);

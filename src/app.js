@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import IndecisionApp from './components/IndecisionApp';
 
-import RandomApp from './components/RandomApp'
-
-ReactDOM.render(<RandomApp />, document.getElementById('app'));
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));

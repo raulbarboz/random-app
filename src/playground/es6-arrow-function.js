@@ -1,16 +1,27 @@
-const user = {
-  name: 'Raul',
-  cities: ['Sao Paulo', 'Mongagua'],
-  printPlacesLived() {
+// function square(x) {
+//   return x * x;
+// };
 
-    //modify arrays
-    return this.cities.map((city) => city + ' cool')
+// console.log(square(3));
 
-    //single loop
-    /*this.cities.forEach((city) => {
-      console.log(city);
-    })*/
-  }
-}
+// // const squareArrow = (x) => {
+// //   return x * x;
+// // };
 
-console.log(user.printPlacesLived());
+// const squareArrow = (x) => x * x;
+
+// console.log(squareArrow(4));
+
+
+// Challenge - Use arrow functions
+// getFirstName('Mike Smith') -> "Mike"
+// Create regular arrow function
+// Create arrow function using shorthand syntax
+
+// const getFirstName = (fullName) => {
+//   return fullName.split(' ')[0];
+// };
+
+const getFirstName = (fullName) => fullName.split(' ')[0];
+
+console.log(getFirstName('Andrew Mead'));
