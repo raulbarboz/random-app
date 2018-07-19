@@ -5,6 +5,7 @@ import Header from './Header';
 import Options from './Options';
 import OptionModal from './OptionModal';
 
+
 export default class IndecisionApp extends React.Component {
   state = {
     options : [],
@@ -25,7 +26,7 @@ export default class IndecisionApp extends React.Component {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randomNum];
     this.setState(() => ({selectedOption: option}))
-    console.log(this.state.selectedOption);
+
   }
   handleAddOption = (option) => {
     if (!option) {
